@@ -1,0 +1,50 @@
+.search{
+   font: 170% "HSESans-Bold", sans-serif;
+   font-size: 30px;
+}
+
+.paginate{
+   font: 170% "HSESans-Regular", sans-serif;
+   font-size: 20px;
+   background-color: #e6e6e6;
+   padding: 5px;
+   border-radius: 5px;
+   margin: 0px 5px 0px 5px;
+}
+
+a.paginate:hover{
+    background-color: #2e5598;
+    color: white;
+}
+
+.select{
+    border-radius: 5px;
+    height: 30px;
+}
+
+.dropdown{
+    display: none;
+}
+
+.arrow.transform{
+    transform: rotate(180deg);
+}
+
+.subcorpus-bg{
+    border-radius: 10px;
+    padding: 10px;
+    background: #e6e6e6;
+}
+
+.subtag{
+    border: 1px solid black;
+    padding: 4px;
+    border-radius: 10px;
+}
+
+span.title{
+    background-color: black;
+    font-color: white;
+}
+
+

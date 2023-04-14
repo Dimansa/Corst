@@ -1,0 +1,15 @@
+.new_date{
+    background: #54729e;
+    color: white;
+    padding: 4px;
+    border-radius: 5px;
+}
+
+.progress-bar{
+    font-family: "HSESans-Regular", sans-serif;
+    background-color: #54729e;
+}
+
+.progress{
+    padding: 0;
+}

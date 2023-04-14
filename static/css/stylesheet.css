@@ -1,0 +1,26 @@
+@font-face {
+  font-family: "HSESans-Regular";
+  src: url("../fonts/HSESans-Regular.otf");
+}
+@font-face {
+  font-family: "HSESans-Black";
+  src: url("../fonts/HSESans-Black.otf");
+}
+@font-face {
+  font-family: "HSESans-Bold";
+  src: url("../fonts/HSESans-Bold.otf");
+}
+
+
+.header-color{
+    background-color: #54729e;
+}
+
+span{
+    color: white;
+    font: 170% "HSESans-Black", sans-serif;
+}
+
+
+
+

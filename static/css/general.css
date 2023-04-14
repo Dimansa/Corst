@@ -1,0 +1,100 @@
+@font-face {
+  font-family: "HSESans-Regular";
+  src: url("../fonts/HSESans-Regular.otf");
+}
+
+@font-face {
+  font-family: "HSESans-Black";
+  src: url("../fonts/HSESans-Black.otf");
+}
+
+@font-face {
+  font-family: "HSESans-Bold";
+  src: url("../fonts/HSESans-Bold.otf");
+}
+
+p{
+    font: 170% "HSESans-Regular", sans-serif;
+    font-size: 20px;
+}
+
+h2{
+   font: 170% "HSESans-Bold", sans-serif;
+   font-size: 30px;
+}
+
+a{
+    text-decoration:none;
+}
+
+span{
+    font-size: 18px;
+}
+
+label{
+    font:  170% "HSESans-Regular", sans-serif;
+    font-size: 20px;
+}
+
+
+
+h4, h5, select {
+    font-family: "HSESans-Regular", sans-serif;
+}
+
+td{
+    font-family: "HSESans-Regular", sans-serif;
+}
+
+.btn{
+   background: #54729e;
+   color: white;
+   font-family: "HSESans-Regular", sans-serif;
+   }
+
+.btn:hover{
+   background: #2e5598;
+   color: white;
+}
+
+.btn-lang{
+    background: white;
+}
+
+.li-point{
+    list-style-type: square;
+}
+
+.footer{
+    background: #54729e;
+}
+
+.login{
+    position: absolute;
+    bottom: 0;
+}
+
+.participants{
+    font-size: 16px;
+}
+
+.form{
+    background-color: black;
+}
+
+.disabled{
+    color: black;
+}
+
+a{
+    font-family: "HSESans-Regular", sans-serif;
+    font-size: 20px;
+
+}
+
+hr{
+    position: relative;
+    z-index: 1;
+}
+
+
