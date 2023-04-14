@@ -488,7 +488,7 @@ def search(request):
 
     quer += ' LIMIT 1000'
 
-    print('\n\n\n' + quer + '\n\n\n')
+    #print('\n\n\n' + quer + '\n\n\n')
     results = Database().execute(quer)
     if request.GET.get('page_number'):
         paginator = Paginator(results, int(request.GET.get('page_number')))
