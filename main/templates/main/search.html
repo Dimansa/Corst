@@ -1,0 +1,858 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}
+Search CoRST
+{% endblock %}
+
+{% block content %}
+    <br>
+    <div class="container w-100">
+      <div class="row">
+        <div class="col-md-9" style="padding: 100px">
+            <hr>
+          <form method="GET">
+              <div id="search1">
+                <h4 class="search">Поиск точных форм</h4>
+                  <label>
+                      <input name="search1" class="form-control input-sm" type="text" placeholder="Введите ключевые слова: " size="100%">
+                  </label>
+              </div>
+              <div class="d-none" id="search2">
+                  <h4 class="search">Поиск по всем формам слова</h4>
+                  <label>
+                      <input name="search2" class="form-control input-sm" type="text" placeholder="Введите слово: " size="100%">
+                  </label>
+              </div>
+              <div class="row mb-3">
+                    <div class="col-sm-3">
+                        <input id="search_01" type="radio" name="s1" checked>
+                        <label  style="font-size:14px;">Поиск точных форм</label>
+                    </div>
+                    <div class="col-sm-5">
+                        <input id="search_02" type="radio" name="s1">
+                        <label style="font-size:14px;">Поиск по всем формам слова</label>
+                    </div>
+              </div>
+              <div class="row">
+                  <div class="col-md-6">
+                    <p><input type="submit" class="btn btn-xs" value="Искать"></p>
+                  </div>
+                  <div class="col-md-6" data-slidedown="#subcorpus" style="cursor: pointer;">
+                      <img class="arrow" src="{% static 'img/down-arrow.png' %}" alt="close" style="float: right;">
+                      <p style="float: right; font-size: 16px; border-bottom: 1px dashed;">Расширенный поиск</p>
+                  </div>
+              </div>
+          <div id="subcorpus"  class="dropdown">
+          <h4 class="search">Выбрать подкорпус</h4>
+            <div class="conatiner mx-4">
+              <h4>Период</h4>
+                <div class="row mb-2 subcorpus-bg">
+                    <div class="col-sm-1 mt-1"><h4  style="font-size:20px;">От</h4></div>
+                    <div class="col-sm-3">
+                            <label>
+                                <input name="years1" type="text" class="form-control input-sm" placeholder="2014" size="100%">
+                            </label>
+                    </div>
+                    <div class="col-sm-1 mt-1"><h4 style="font-size:20px;">до</h4></div>
+                    <div class="col-sm-3">
+                            <label>
+                                <input name="years2" type="text" class="form-control input-sm" placeholder="2015" size="100%">
+                            </label>
+                    </div>
+                </div>
+              <h4>Пол автора</h4>
+                <div class="row mb-2 subcorpus-bg">
+                        <div class="col-sm-4">
+                            <input type="radio" name="genAnswer" value = " ">
+                            <label>Любой</label>
+                        </div>
+                        <div class="col-sm-4">
+                            <input type="radio" name="genAnswer" value = "м">
+                            <label>Мужской</label>
+                        </div>
+                        <div class="col-sm-4">
+                            <input type="radio" name="genAnswer" value = "ж">
+                            <label>Женский</label>
+                        </div>
+                </div>
+              <h4>Курс</h4>
+                <div class="row mb-2 subcorpus-bg">
+                    <div class="col-sm-6">
+                            <input type="checkbox" class="chk-all" name="cas" value="all" data-group="g1">
+                            <label>Выбрать все</label><br>
+
+                            <input type="checkbox" name="cas6" value="s6" data-group="g1">
+                            <label>6 курс специалитет</label><br>
+
+                            <input type="checkbox" name="cas5" value="s5" data-group="g1">
+                            <label>5 курс специалитет</label><br>
+
+                            <input type="checkbox" name="cas4" value="s4" data-group="g1">
+                            <label>4 курс специалитет</label><br>
+
+                            <input type="checkbox" name="cas3" value="s3" data-group="g1">
+                            <label>3 курс специалитет</label><br>
+
+                            <input type="checkbox" name="cas2" value="s2" data-group="g1">
+                            <label>2 курс специалитет</label><br>
+
+                            <input type="checkbox" name="cas1" value="s1" data-group="g1">
+                            <label>1 курс специалитет</label>
+                    </div>
+                    <div class="col-sm-6">
+                            <input type="checkbox"  name="cab4" value="b4" data-group="g1">
+                            <label>4 курс бакалавриат</label><br>
+
+                            <input type="checkbox"  name="cab3" value="b3" data-group="g1">
+                            <label>3 курс бакалавриат</label><br>
+
+                            <input type="checkbox"  name="cab2" value="b2" data-group="g1">
+                            <label>2 курс бакалавриат</label><br>
+
+                            <input type="checkbox"  name="cab1" value="b1" data-group="g1">
+                            <label>1 курс бакалавриат</label>
+                    </div>
+                </div>
+              <h4>Тип работы</h4>
+                <div class="row mb-2 subcorpus-bg">
+                    <div class="col-sm-6">
+                        <input type="checkbox" class="chk-all" data-group="g2">
+                        <label>Выбрать все</label><br>
+
+                        <input type="checkbox" name="conference" data-group="g2">
+                        <label>Обзор конференции</label><br>
+
+                        <input type="checkbox" name="course_work" data-group="g2">
+                        <label>Курсовая работа</label><br>
+
+                        <input type="checkbox" name ="аutobiography" data-group="g2">
+                        <label>Автобиография</label><br>
+
+                        <input type="checkbox" name = "VKR" data-group="g2">
+                        <label>ВКР</label><br>
+
+                        <input type="checkbox" name = "statement" data-group="g2">
+                        <label>Заявление</label><br>
+
+                        <input type="checkbox" name = "essay" data-group="g2">
+                        <label>Эссе</label><br>
+
+                        <input type="checkbox" name = "annotation" data-group="g2">
+                        <label>Аннотация</label><br>
+                    </div>
+                    <div class="col-sm-6">
+                        <input type="checkbox" name = "paragraph" data-group="g2">
+                        <label>Абзац</label><br>
+
+                        <input type="checkbox" name = "course_work_draft" data-group="g2">
+                        <label>Курсовая работа (черновик)</label><br>
+
+                        <input type="checkbox" name = "semester_work" data-group="g2">
+                        <label>Семестровая работа</label><br>
+
+                        <input type="checkbox" name = "project_summary" data-group="g2">
+                        <label>Аннотация проекта</label><br>
+
+                        <input type="checkbox" name = "diploma" data-group="g2">
+                        <label>Диплом</label><br>
+
+                        <input type="checkbox" name = "commercial_offer" data-group="g2">
+                        <label>Коммерческое предложение</label><br>
+
+                        <input type="checkbox" name = "abstract" data-group="g2">
+                        <label>Реферат</label><br>
+                    </div>
+                </div>
+              <h4>Специальность автора</h4>
+                <div class="row mb-2 subcorpus-bg">
+                    <div class="col-sm-6">
+                        <input type="checkbox" class="chk-all" data-group="g3">
+                        <label>Выбрать все</label><br>
+
+                        <input type="checkbox" name = "Культурология" data-group="g3">
+                        <label>Культурология</label><br>
+
+                        <input type="checkbox" name = "Экономика" data-group="g3">
+                        <label>Экономика</label><br>
+
+                        <input type="checkbox" name = "История" data-group="g3">
+                        <label>История</label><br>
+
+                        <input type="checkbox" name = "Журналистика" data-group="g3">
+                        <label>Журналистика</label><br>
+
+                        <input type="checkbox" name = "Дизайн" data-group="g3">
+                        <label>Дизайн</label><br>
+
+                        <input type="checkbox" name = "Востоковедение" data-group="g3">
+                        <label>Востоковедение</label><br>
+
+                        <input type="checkbox" name = "Медиакоммуникации" data-group="g3">
+                        <label>Медиакоммуникации</label><br>
+
+                        <input type="checkbox" name = "Политология" data-group="g3">
+                        <label>Политология</label><br>
+
+                        <input type="checkbox" name = "Лингвистика" data-group="g3">
+                        <label>Лингвистика</label><br>
+
+                        <input type="checkbox" name = "Юриспруденция" data-group="g3">
+                        <label>Юриспруденция</label><br>
+
+                        <input type="checkbox" name = "Менеджмент" data-group="g3">
+                        <label>Менеджмент</label><br>
+                    </div>
+                    <div class="col-sm-6">
+                        <input type="checkbox" name = "Социология" data-group="g3">
+                        <label>Социология</label><br>
+
+                        <input type="checkbox" name = "Логистика" data-group="g3">
+                        <label>Логистика</label><br>
+
+                        <input type="checkbox" name = "Математика" data-group="g3">
+                        <label>Математика</label><br>
+
+                        <input type="checkbox" name = "Иностранные языки" data-group="g3">
+                        <label>Иностранные языки</label><br>
+
+                        <input type="checkbox" name = "Мировая экономика" data-group="g3">
+                        <label>Мировая экономика</label><br>
+
+                        <input type="checkbox" name = "Современное искусство" data-group="g3">
+                        <label>Современное искусство</label><br>
+
+                        <input type="checkbox" name = "Прикладная математика и информатика" data-group="g3">
+                        <label>Прикладная математика и информатика</label><br>
+
+                        <input type="checkbox" name = "Реклама и связи с общественностью" data-group="g3">
+                        <label>Реклама и связи с общественностью</label><br>
+
+                        <input type="checkbox" name = "Психология" data-group="g3">
+                        <label>Психология</label><br>
+
+                        <input type="checkbox" name = "История искусств" data-group="g3">
+                        <label>История искусств</label><br>
+
+                        <input type="checkbox" name = "Филология" data-group="g3">
+                        <label>Филология</label><br>
+                    </div>
+                </div>
+              <h4>Научная область</h4>
+                <div class="row mb-2 subcorpus-bg">
+                    <div class="col-sm-6">
+                        <input type="checkbox" class="chk-all" data-group="g4">
+                        <label>Выбрать все</label><br>
+
+                        <input type="checkbox" name = "политология_d" data-group="g4">
+                        <label>Политология</label><br>
+
+                        <input type="checkbox" name = "психология_d" data-group="g4">
+                        <label>Психология</label><br>
+
+                        <input type="checkbox" name = "разнородная_тематика_d" data-group="g4">
+                        <label>Разнородная тематика</label><br>
+
+                        <input type="checkbox" name = "менеджмент_d" data-group="g4">
+                        <label>Менеджмент</label><br>
+
+                        <input type="checkbox" name = "журналистика_d" data-group="g4">
+                        <label>Журналистика</label><br>
+
+                        <input type="checkbox" name = "право_d" data-group="g4">
+                        <label>Право</label><br>
+                    </div>
+                    <div class="col-sm-6">
+                        <input type="checkbox" name = "cоциология_d" data-group="g4">
+                        <label>Социология</label><br>
+
+                        <input type="checkbox" name = "риторика_d" data-group="g4">
+                        <label>Риторика</label><br>
+
+                        <input type="checkbox" name = "cоциолингвистика_d" data-group="g4">
+                        <label>Социолингвистика</label><br>
+
+                        <input type="checkbox" name = "лингвистика_d" data-group="g4">
+                        <label>Лингвистика</label><br>
+
+                        <input type="checkbox" name = "образование_d" data-group="g4">
+                        <label>Образование</label><br>
+
+                        <input type="checkbox" name = "филология_d" data-group="g4">
+                        <label>Филология</label><br>
+                    </div>
+                </div>
+            </div>
+          <h4 class="search">Настройки вывода</h4>
+            <div class="row mx-4 subcorpus-bg">
+              <div class="col-sm-6">
+                  <label>Макет вывода</label>
+              </div>
+              <div class="col-sm-6">
+                  <select class="w-100 select">
+                      <option>Полный</option>
+                      <option>KWIC</option>
+                  </select>
+              </div>
+              <div class="col-sm-6">
+                  <label>Совпадений на странице</label>
+              </div>
+              <div class="col-sm-6">
+                  <input type = "text" list = "p" name="page_number">
+                    <datalist id = "p">
+                        <option value = "10">
+                        <option value = "20">
+                        <option value = "30">
+                        <option value = "40">
+                        <option value = "50">
+                        <option value = "100">
+                    </datalist>
+              </div>
+              <div class="col-sm-6">
+                  <label>Предложений в развернутом контексте</label>
+              </div>
+              <div class="col-sm-6">
+                  <select class="w-100 select">
+                      <option>+-1</option>
+                      <option>+-2</option>
+                      <option>+-3</option>
+                  </select>
+              </div>
+              <div class="col-sm-6">
+                  <label>Сортировать по</label>
+              </div>
+              <div class="col-sm-6">
+                  <input type = "text" list = "sort" name="sort_by">
+                    <datalist id = "sort">
+                        <option value = "Словоформе">
+                        <option value = "Лексеме">
+                        <option value = "Дате">
+                        <option value = "Дате в порядке убывания">
+                        <option value = "Коду студента">
+                    </datalist>
+              </div>
+            </div>
+          </div>
+              <hr>
+        </div>
+
+        <div class="col-md-3">
+          <h3 class="search">Фильтры</h3>
+          <div class="mb-2 subcorpus-bg">
+              <div class='row align-baseline' data-slidedown="#parts_of_speech" style="cursor: pointer;">
+                  <div class="col-md-9"><h4>Части речи</h4></div>
+                  <div class="col-md-3"><img class="arrow" src="{% static 'img/down-arrow.png' %}" alt="close"></div>
+              </div>
+              <div id="parts_of_speech" class='dropdown'>
+                    <input type="checkbox" name ="s">
+                    <label>существительное</label><br>
+
+                    <input type="checkbox" name = "a">
+                    <label>прилагательное</label><br>
+
+                    <input type="checkbox" name="num">
+                    <label>числительное</label><br>
+
+                    <input type="checkbox" name = "anum">
+                    <label>числ-прил</label><br>
+
+                    <input type="checkbox" name = "v">
+                    <label>глагол</label><br>
+
+                    <input type="checkbox" name="adv">
+                    <label>наречие</label><br>
+
+                    <input type="checkbox" name="parenth">
+                    <label>вводное слово</label><br>
+
+                    <input type="checkbox" name="praedic">
+                    <label>предикатив</label><br>
+
+                    <input type="checkbox" name="advpro">
+                    <label>мест-наречие</label><br>
+
+                    <input type="checkbox" name="spro">
+                    <label>мест-сущ</label><br>
+
+                    <input type="checkbox" name="apro">
+                    <label>мест-прил</label><br>
+
+                    <input type="checkbox" name="pr">
+                    <label>предлог</label><br>
+
+                    <input type="checkbox" name="conj">
+                    <label>союз</label><br>
+
+                    <input type="checkbox" name="part">
+                    <label>частица</label><br>
+
+                    <input type="checkbox" name="intj">
+                    <label>междометие</label><br>
+              </div>
+          </div>
+          <div class="mb-2 subcorpus-bg">
+              <div class='row align-baseline' data-slidedown="#gram_tags" style="cursor: pointer;">
+                  <div class="col-md-9"><h4>Грамматические тэги</h4></div>
+                  <div class="col-md-3"><img class="arrow" src="{% static 'img/down-arrow.png' %}" alt="close"></div>
+              </div>
+              <div id="gram_tags" class='dropdown'>
+                    <div class="subtag mb-2">
+                    <h5>Род</h5>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <input type="checkbox" name="m">
+                            <label>m</label><br>
+                        </div>
+                        <div class="col-sm-3">
+                            <input type="checkbox" name="f">
+                            <label>f</label><br>
+                        </div>
+                        <div class="col-sm-3" >
+                            <input type="checkbox" name="n">
+                            <label>n</label><br>
+                        </div>
+                        <div class="col-sm-3">
+                            <input type="checkbox"  name="mf">
+                            <label>mf</label><br>
+                        </div>
+                    </div>
+                    </div>
+
+                    <div class="subtag mb-2">
+                    <h5>Падеж</h5>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <input type="checkbox" name="nom">
+                            <label>nom</label><br>
+
+                            <input type="checkbox" name="acc">
+                            <label>acc</label><br>
+
+                            <input type="checkbox" name="dat">
+                            <label>dat</label><br>
+
+                            <input type="checkbox" name="gen">
+                            <label>gen</label><br>
+                        </div>
+                        <div class="col-sm-6">
+                            <input type="checkbox" name="ins">
+                            <label>ins</label><br>
+
+                            <input type="checkbox" name="loc">
+                            <label>loc</label><br>
+
+                            <input type="checkbox" name="loc2">
+                            <label>loc2</label><br>
+
+                            <input type="checkbox" name="gen2">
+                            <label>gen2</label><br>
+                        </div>
+                    </div>
+                    </div>
+                    <div class="subtag mb-2">
+                    <h5>Степень/краткость</h5>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <input type="checkbox" name="comp">
+                            <label>comp</label><br>
+
+                            <input type="checkbox" name="comp2">
+                            <label>comp2</label><br>
+
+                            <input type="checkbox" name="sup">
+                            <label>sup</label><br>
+                        </div>
+                        <div class="col-sm-6" >
+                            <input type="checkbox" name="plen">
+                            <label>plen</label><br>
+
+                            <input type="checkbox" name="brev">
+                            <label>brev</label><br>
+                        </div>
+                    </div>
+                    </div>
+                    <div class="subtag mb-2">
+                    <h5>Число</h5>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <input type="checkbox" name="sg">
+                            <label>sg</label><br>
+                        </div>
+                        <div class="col-sm-6">
+                            <input type="checkbox" name="pl">
+                            <label>pl</label><br>
+                        </div>
+                    </div>
+                    </div>
+                    <div class="subtag mb-2">
+                    <h5>Одушевленность</h5>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <input type="checkbox" name="anim">
+                            <label>anim</label><br>
+                        </div>
+                        <div class="col-sm-6">
+                            <input type="checkbox" name="inan">
+                            <label>inan</label><br>
+                        </div>
+                    </div>
+                    </div>
+                    <div class="subtag mb-2">
+                    <h5>Наклонение/форма</h5>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <input type="checkbox"  name="indic">
+                            <label>indic</label><br>
+
+                            <input type="checkbox" name="imper">
+                            <label>imper</label><br>
+
+                            <input type="checkbox" name="imper2">
+                            <label>imper2</label><br>
+                        </div>
+                        <div class="col-sm-6">
+                            <input type="checkbox" name="inf">
+                            <label>inf</label><br>
+
+                            <input type="checkbox" name="partcp">
+                            <label>partcp</label><br>
+
+                            <input type="checkbox" name="ger">
+                            <label>ger</label><br>
+                        </div>
+                    </div>
+                    </div>
+                    <div class="subtag mb-2">
+                    <h5>Время</h5>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <input type="checkbox" name="praes">
+                            <label>praes</label><br>
+
+                            <input type="checkbox" name="fut">
+                            <label>fut</label><br>
+
+                            <input type="checkbox" name="praet">
+                            <label>praet</label><br>
+                        </div>
+                    </div>
+                    </div>
+                    <div class="subtag mb-2">
+                    <h5>Вид</h5>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <input type="checkbox"  name="pf">
+                            <label>pf</label><br>
+                        </div>
+                        <div class="col-sm-6">
+                            <input type="checkbox" name="ipf">
+                            <label>ipf</label><br>
+                        </div>
+                    </div>
+                    </div>
+                    <div class="subtag mb-2">
+                    <h5>Лицо</h5>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <input type="checkbox" name="1p">
+                            <label>1p</label><br>
+
+                            <input type="checkbox" name="2p">
+                            <label>2p</label><br>
+
+                            <input type="checkbox"  name="3p">
+                            <label>3p</label><br>
+                        </div>
+                    </div>
+                    </div>
+                    <div class="subtag mb-2">
+                    <h5>Залог</h5>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <input type="checkbox" name="act">
+                            <label>act</label><br>
+
+                            <input type="checkbox" name="pas">
+                            <label>pas</label><br>
+
+                            <input type="checkbox" name="med">
+                            <label>med</label><br>
+                        </div>
+                    </div>
+                    </div>
+                    <div class="subtag mb-2">
+                    <h5>Переходность</h5>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <input type="checkbox" name="tran">
+                            <label>tran</label><br>
+                        </div>
+                        <div class="col-sm-6">
+                            <input type="checkbox" name="intr">
+                            <label>intr</label><br>
+                        </div>
+                    </div>
+                    </div>
+                    <div class="subtag mb-2">
+                    <h5>Имена собственные</h5>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <input type="checkbox" name="famn">
+                            <label>famn</label><br>
+
+                            <input type="checkbox" name="persn">
+                            <label>persn</label><br>
+
+                            <input type="checkbox" name="patrn">
+                            <label>patrn</label><br>
+                        </div>
+                    </div>
+                    </div>
+                    <div class="subtag mb-2">
+                    <h5>Прочее</h5>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <input type="checkbox" name="ciph">
+                            <label>ciph</label><br>
+
+                            <input type="checkbox" name="anom">
+                            <label>anom</label><br>
+
+                            <input type="checkbox" name="distort">
+                            <label>distort</label><br>
+
+                            <input type="checkbox" name="INIT">
+                            <label>INIT</label><br>
+                        </div>
+                        <div class="col-sm-6">
+                            <input type="checkbox" name="abbr">
+                            <label>abbr</label><br>
+
+                            <input type="checkbox" name="0">
+                            <label>0</label><br>
+
+                            <input type="checkbox" name="topon">
+                            <label>topon</label><br>
+                        </div>
+                    </div>
+                    </div>
+              </div>
+          </div>
+          <div class="mb-2 subcorpus-bg">
+              <div class='row align-baseline' data-slidedown="#errors" style="cursor: pointer;">
+                  <div class="col-md-9"><h4>Ошибки</h4></div>
+                  <div class="col-md-3"><img class="arrow" src="{% static 'img/down-arrow.png' %}" alt="close"></div>
+              </div>
+              <div id="errors" class='dropdown'>
+                  <div class="subtag mb-2">
+                    <h5>Лексические ошибки</h5>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <input type="checkbox" name="lex">
+                            <label>lex</label><br>
+
+                            <input type="checkbox" name="word">
+                            <label>word</label><br>
+
+                            <input type="checkbox" name="phrase">
+                            <label>phrase</label><br>
+
+                            <input type="checkbox" name="meton">
+                            <label>meton</label><br>
+
+                            <input type="checkbox" name="intens">
+                            <label>intens</label><br>
+                        </div>
+                        <div class="col-sm-6">
+                            <input type="checkbox" name="deriv">
+                            <label>deriv</label><br>
+
+                            <input type="checkbox" name="paron">
+                            <label>paron</label><br>
+
+                            <input type="checkbox" name="asp">
+                            <label>asp</label><br>
+
+                            <input type="checkbox" name="nmz">
+                            <label>nmz</label><br>
+
+                            <input type="checkbox" name="aux">
+                            <label>aux</label><br>
+                        </div>
+                    </div>
+                    </div>
+                  <div class="subtag mb-2">
+                    <h5>Стиль</h5>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <input type="checkbox" name="styl">
+                            <label>styl</label><br>
+
+                            <input type="checkbox" name="official">
+                            <label>official</label><br>
+
+                            <input type="checkbox" name="colloq">
+                            <label>colloq</label><br>
+                        </div>
+                    </div>
+                    </div>
+                  <div class="subtag mb-2">
+                    <h5>Грамматические ошибки</h5>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <input type="checkbox" name="agr">
+                            <label>agr</label><br>
+
+                            <input type="checkbox" name="gov">
+                            <label>gov</label><br>
+
+                            <input type="checkbox" name="infl">
+                            <label>infl</label><br>
+
+                            <input type="checkbox" name="compar">
+                            <label>compar</label><br>
+
+                            <input type="checkbox" name="complex">
+                            <label>complex</label><br>
+
+                            <input type="checkbox" name="rel_clause">
+                            <label>rel_clause</label><br>
+
+                            <input type="checkbox" name="sent_arg">
+                            <label>sent_arg</label><br>
+
+                            <input type="checkbox" name="conn">
+                            <label>conn</label><br>
+                        </div>
+                        <div class="col-sm-6">
+
+                            <input type="checkbox" name="coord">
+                            <label>coord</label><br>
+
+                            <input type="checkbox" name="discoord">
+                            <label>discoord</label><br>
+
+                            <input type="checkbox" name="ref">
+                            <label>ref</label><br>
+
+                            <input type="checkbox" name="converb">
+                            <label>converb</label><br>
+
+                            <input type="checkbox" name="pron">
+                            <label>pron</label><br>
+
+                            <input type="checkbox" name="voice">
+                            <label>voice</label><br>
+
+                            <input type="checkbox" name="lack">
+                            <label>lack</label><br>
+
+                            <input type="checkbox" name="constr">
+                            <label>constr</label><br>
+                        </div>
+                    </div>
+                    </div>
+                  <div class="subtag mb-2">
+                    <h5>Дискурс</h5>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <input type="checkbox" name="discourse">
+                            <label>discourse</label><br>
+
+                            <input type="checkbox" name="parc">
+                            <label>parc</label><br>
+
+                            <input type="checkbox" name="logic">
+                            <label>logic</label><br>
+
+                            <input type="checkbox" name="link">
+                            <label>link</label><br>
+                        </div>
+                        <div class="col-sm-6">
+
+                            <input type="checkbox" name="WO">
+                            <label>WO</label><br>
+
+                            <input type="checkbox" name="tauto">
+                            <label>tauto</label><br>
+
+                            <input type="checkbox" name="top">
+                            <label>top</label><br>
+                        </div>
+                    </div>
+                    </div>
+                  <div class="subtag mb-2">
+                    <h5>Причина ошибки</h5>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <input type="checkbox" name="cause">
+                            <label>cause</label><br>
+
+                            <input type="checkbox" name="typo">
+                            <label>typo</label><br>
+
+                            <input type="checkbox" name="contam">
+                            <label>contam</label><br>
+                        </div>
+                    </div>
+                    </div>
+              </div>
+          </div>
+            </form>
+            <p><input id='downloader' type="submit" class="btn btn-xs disabled w-100" value="Скачать выбранные записи" form="chk_for_download"></p>
+            <form id="d" action="download" method="POST">
+            {% csrf_token %}
+            {% for resul in results %}
+                <input class="d-none" type="checkbox" name="download" value="{{ resul }}" checked>
+            {% endfor %}
+            </form>
+            <p><input type="submit" class="btn btn-xs w-100" form="d" value="Скачать все записи"></p>
+        </div>
+      </div>
+    </div>
+<div class="container w-100">
+      <div class="row" >
+        <div class="col-md-9">
+            <form action="{% url 'download' %}" id="chk_for_download" method="POST">
+            {% csrf_token %}
+            {% for res in page_obj %}
+            <div class="row">
+                <div class="col-sm-1">
+                    <input type="checkbox" name="download" value="{{ res }}">
+                </div>
+                <div class="col-sm">
+                    <p class="mb-0"><b>{{ res.date_displayed }}, {{ res.genre }} ({{ res.major }}, {{ res.course }})</b></p>
+                    <p name='text' class="mb-3">{{res.tagged|safe|linebreaksbr}}
+                    </p>
+                </div>
+            </div>
+            {% endfor %}
+            </form>
+            <div class="d-flex pagination justify-content-center">
+                <span class="step-links">
+
+                    {% if page_obj.has_previous %}
+                    <a class="paginate" href="?{{req}}&page=1">&laquo;</a>
+                    <a class="paginate" href="?{{req}}&page={{ page_obj.previous_page_number }}">&lsaquo;</a>
+                    {% endif %}
+
+                    <span class="paginate bg-white">
+                        {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
+                    </span>
+
+                    {% if page_obj.has_next %}
+                    <a class="paginate" href="?{{req}}&page={{ page_obj.next_page_number }}">&rsaquo;</a>
+                    <a class="paginate" href="?{{req}}&page={{ page_obj.paginator.num_pages }}">&raquo;</a>
+                    {% endif %}
+                </span>
+            </div>
+        </div>
+      </div>
+</div>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+    <script src="{% static 'js/dropdown_menu.js' %}"></script>
+    <script src="{% static 'js/check_all.js' %}"> </script>
+    <script src="{% static 'js/search_type.js' %}"> </script>
+    <script src="{% static 'js/download.js' %}"> </script>
+{% endblock %}

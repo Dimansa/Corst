@@ -1,0 +1,79 @@
+{% extends 'main/base_en.html' %}
+
+{% block title %}
+Help CoRST
+{%endblock%}
+{% block content %}
+     <div class="container w-100">
+     <div class="panel panel-default">
+       <h2>How to search in a corpus</h2>
+       <div class="panel body">
+           <h4 id="exact">How to find the word form in the corpus?</h4>
+         <p>In the search box, in the "Search for exact forms" line, type the desired word form and click on the "Search" button:</p>
+           <p>You will receive search results in a separate window.</p><p>This field can only be searched for one word form. Even if you enter multiple word forms, only the first word will be searched. To search for several words, use the lexico-grammatical search function.</p><hr>
+           <h4 id="lexic">What is lexical-grammatical search?</h4>
+           <p>Lexeco-grammatical search allows you to search for all occurrences of a lexeme, occurrences of a lexeme in the desired grammatical form, necessary error tags, and also allows you to search for combinations of several words.</p>
+         <p>To find all occurrences of a particular lexeme in the corpus, on the search page in the "Lexeco-grammatical search" zone in the "Word form" field, type the desired word and click on the "Search" button (the lexeme must be typed in the main, dictionary form):< /p>
+           <p>In response to this request, you will receive all word forms related to the lexeme and included
+to Corpus.</p>
+           <hr>
+           <h4 id="distance">Distance between words</h4>
+           <p>In the "Distance" column, the desired distance from the first word to all the following is set (for example, distance 1-1 means that the word will be directly to the right of the first search word, distance 1-2 - the word will be next to the right or to the right after one word , 2-2 - the word will be to the right one word from the first. The distance can be negative (for example, -1 and -2) If you are looking for a sequence of three words, then in the first column "Distance" you need to set the parameters 1-1, and in the second 2-2.</p>
+       </div>
+     </div>
+
+     <div class="panel panel-default" id="tags">
+       <div class="panel body">
+       </div>
+     </div>
+
+
+     <div class="panel panel-default" id="howtoann">
+       <h2>How to lay out in a body</h2>
+       <div class="panel body">
+            <div class="row">
+
+<div class="col-sm-12">
+         <h4 id="addtext">How to add text</h4>
+           <p>Go to the Control Panel. In the "Annotator" window, you need to find the line "Documents". In this line, you can click on the word "Add +" to proceed to adding new text to the corpus. By clicking on the word "Documents", you will be taken to a list of all texts. On the top right, you can click the "Add Document" button to proceed to adding text to the corpus.</p>
+           <p>In the window that opens, you need to insert new text in the "Text" field and fill in the "Text source" and "Author" fields. If possible, complete other fields in the document (see <a href="#sec3">meta-markup info</a> for details).</p>
+           <p>Click the "Save" button and wait a moment: the text is processed by the morphological parser and added to the database. After the text is written, you will automatically go to the list of documents and see the notification "Document was added successfully".</p>
+           <hr id="sec3">
+         <h3>Meta markup</h3>
+          <p>Description of meta markup fields.</p>
+           <ul>
+               <li><b>Creator</b> - login of the user who uploads the text.</li>
+               <li><b>Text source</b> - </li>
+           </ul>
+           <p>Author Information</p>
+           <ul>
+               <li><b>Author</b> - </li>
+               <li><b>Gender</b> - the gender of the author of the text.</li>
+               <li><b>Course</b> - the course or program within which the writing of the text was set (optional).</li>
+               <li><b>Language background</b> - learning Russian as a foreign/heritage language.</li>
+               <li><b>Level</b> - the level of Russian language proficiency according to the CEFR scale</li>
+               <li><b>Dominant language</b> - the language in which the student communicates most of the time</li>
+               <li><b>Student Code</b> - </li>
+               <li><b>Full metadata</b> - whether the main metadata fields are filled in (dominant language, language background, proficiency level, mode)</li>
+           </ul>
+           <p>Text information</p>
+           <ul>
+               <li><b>Date</b> - the year the text was created</li>
+               <li><b>Genre</b> - </li>
+               <li><b>Text type</b> - </li>
+               <li><b>Abstract</b> - </li>
+               <li><b>Time limits</b> - </li>
+               <li><b>Mode</b> - oral\written</li>
+               <li><b>Subbuilding</b> - RULEC | HSE</li>
+           </ul>
+
+           <hr id="sec5">
+         <h4 id="annotating">Annotating errors</h4>
+           <hr id="sec6">
+         <h4>..</h4>
+</div>
+            </div>
+       </div>
+     </div>
+     </div>
+{% endblock content %}

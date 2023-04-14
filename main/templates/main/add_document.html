@@ -1,0 +1,85 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}
+Add Doc CoRST
+{% endblock %}
+
+{% block content %}
+    <div class="container w-100">
+    <form method="post">
+        {% csrf_token %}
+    <h3>Add Document</h3>
+        <p>ID</p>
+        <div class="row mb-3">
+        {{ form.id }}
+        </div>
+        <p>Title</p>
+        <div class="row mb-3">
+        {{ form.title }}
+        </div>
+        <p>Text</p>
+        <div class="row mb-3">
+        {{ form.text }}
+        </div>
+        <p>Owner</p>
+        <div class="row mb-3">
+        {{ form.owner }}
+        </div>
+        <p>Author</p>
+        <div class="row mb-3">
+        {{ form.author }}
+        </div>
+        <p>Gender</p>
+        <div class="row mb-3">
+        {{ form.gender }}
+        </div>
+        <p>Major</p>
+        <div class="row mb-3">
+        {{ form.major }}
+        </div>
+        <p>Genre</p>
+        <div class="row mb-3">
+        {{ form.genre }}
+        </div>
+        <p>Domain</p>
+        <div class="row mb-3">
+        {{ form.domain }}
+        </div>
+        <p>University</p>
+        <div class="row mb-3">
+        {{ form.university }}
+        </div>
+        <p>Student Code</p>
+        <div class="row mb-3">
+        {{ form.student_code }}
+        </div>
+        <p>University Code</p>
+        <div class="row mb-3">
+        {{ form.university_code }}
+        </div>
+        <p>Date 1</p>
+        <div class="row mb-3">
+        {{ form.date_1 }}
+        </div>
+        <p>Date 2</p>
+        <div class="row mb-3">
+        {{ form.date_2}}
+        </div>
+        <p>Course</p>
+        <div class="row mb-3">
+        {{ form.course}}
+        </div>
+        <p>Is Marked</p>
+        <div class="row mb-3">
+        {{ form.is_marked}}
+        </div>
+        <p>Is Checked</p>
+        <div class="row mb-3">
+        {{ form.is_checked}}
+        </div>
+        <div class="col-sm-3">
+            <p><input type="submit" class="btn btn-xs" value="OK" style="margin: 0 auto; display: block;"></p>
+        </div>
+    </form>
+{% endblock %}

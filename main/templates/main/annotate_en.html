@@ -1,0 +1,50 @@
+{% extends 'main/base_en.html' %}
+{% load static %}
+
+{% block title %}
+Annotate CoRST
+{% endblock %}
+
+{% block content %}
+    <div class="container w-100">
+        <h4>Select marker: </h4>
+        <form action="annotate" method="GET">
+        {% for user in users %}
+
+            <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="usr" value="{{ user.id }}">
+            <label class="form-check-label" style="font-size: 17px;">{{ user.first_name }} {{ user.last_name }}</label>
+            </div>
+        {% endfor %}
+        <h4>Choose major: </h4>
+        {% for type in types %}
+
+            <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="major" value="{{ type.major }}">
+            <label class="form-check-label" style="font-size: 17px;">{{ type.major }}</label>
+            </div>
+        {% endfor %}
+        <p><input type="submit" class="btn btn-xs" value="Filter documents"></p>
+        </form>
+        <div class="row">
+            <div class="col-md-4">
+                <h3 class="new_date">Not annotated</h3>
+                {% for data in not_annotated %}
+                <a href="{% url 'document_view' %}?doc={{ data.id }}">[{{ data.id }}] {{ data.title }}</a><br>
+                {% endfor %}
+            </div>
+            <div class="col-md-4">
+                <h3 class="new_date">Annotated, not checked</h3>
+                {% for data in annotated_not_checked %}
+                <a href="{% url 'document_view' %}?doc={{ data.id }}">[{{ data.id }}] {{ data.title }}</a><br>
+                {% endfor %}
+            </div>
+            <div class="col-md-4">
+                <h3 class="new_date">Annotated, checked</h3>
+                {% for data in annotated_and_checked %}
+                <a href="{% url 'document_view' %}?doc={{ data.id }}">[{{ data.id }}] {{ data.title }}</a><br>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,13 @@
+{% load static %}
+<div class="popup-bg" id="login_ajax">
+    <form action="{% url 'login_ajax'%}" method="POST" id="form_ajax">
+        <div class="popup">
+            <div class="alert alert-success d-none" role="alert">This is a success alert—check it out!</div>
+            <div class="alert alert-danger d-none" role="alert">This is a danger alert—check it out!</div>
+            <img class="close-popup" src="{% static 'img/close.png' %}" alt="close">
+                {{ login_ajax }}
+                {% csrf_token %}
+            <p><input type="submit" class="btn btn-xs mt-4" value="OK" style="margin: 0 auto; display: block;"></p>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,60 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}
+Annotate CoRST
+{% endblock %}
+
+{% block content %}
+    <div class="container w-100">
+        <h4>Выбрать разметчика: </h4>
+        <form action="annotate" method="GET">
+        {% for user in users %}
+
+            <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="usr" value="{{ user.id }}">
+            <label class="form-check-label" style="font-size: 17px;">{{ user.first_name }} {{ user.last_name }}</label>
+            </div>
+        {% endfor %}
+        <h4>Выбрать направление: </h4>
+        {% for type in types %}
+
+            <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="major"   value="{{ type.major }}">
+            <label class="form-check-label" style="font-size: 17px;">{{ type.major }}</label>
+            </div>
+        {% endfor %}
+        <div class="row">
+            <div class="col-md-3">
+            <p><input type="submit" class="btn btn-xs" value="Отфильтровать документы"></p>
+            </div>
+            <div class="col-md-3">
+
+            <a href="document_add" class="ref">
+                <span class="nav-item">Добавить новый документ</span>
+            </a>
+            </div>
+        </div>
+        </form>
+        <div class="row">
+            <div class="col-md-4">
+                <h3 class="new_date">Не аннотировано</h3>
+                {% for data in not_annotated %}
+                <a href="{% url 'document_view' %}?doc={{ data.id }}">[{{ data.id }}] {{ data.title }}</a><br>
+                {% endfor %}
+            </div>
+            <div class="col-md-4">
+                <h3 class="new_date">Аннотировано, но не проверено</h3>
+                {% for data in annotated_not_checked %}
+                <a href="{% url 'document_view' %}?doc={{ data.id }}">[{{ data.id }}] {{ data.title }}</a><br>
+                {% endfor %}
+            </div>
+            <div class="col-md-4">
+                <h3 class="new_date">Аннотировано и проверено</h3>
+                {% for data in annotated_and_checked %}
+                <a href="{% url 'document_view' %}?doc={{ data.id }}">[{{ data.id }}] {{ data.title }}</a><br>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

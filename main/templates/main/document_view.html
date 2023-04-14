@@ -1,0 +1,226 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}
+Document CoRST
+{% endblock %}
+
+{% block content %}
+
+    <div class="container w-100">
+    <div class="row">
+        <div class="col-md-10">
+        <h2>{{ doc.0 }}</h2>
+        <p>{{doc.1|safe|linebreaksbr}}</p>
+        <a href="#" onclick="get_selected_text(); return false;">Посмотреть выделенный текст</a>
+        <br>
+
+
+        <form action = "/document_view?doc=" method="POST">
+            {% csrf_token %}
+            <input name="comment" placeholder="Комментарий" id ="a1">
+            <input name="tags" placeholder="Теги" id = "a2">
+
+        </form>
+        <a href="#" onclick="get_selected_text1('a1','a2'); return false;">Аннотировать выделенный текст</a>
+        </div>
+        <div class="col-md-2">
+            <div class="container bg-light w-100">
+            <h4 class="well well-sm" >Тэги ошибок</h4>
+            </div>
+            <div class="container bg-light">
+            <ul>
+                <li>Lexis
+                    <ul>
+                        <li>lex
+                        <ul>
+                            <li>word</li>
+                            <li>phrase</li>
+                            <li>meton</li>
+                            <li>intens</li>
+                        </ul></li>
+                        <li>deriv
+                        <ul>
+                            <li>paron</li>
+                            <li>asp</li>
+                        </ul></li>
+                        <li>nmz</li>
+                        <li>aux</li>
+                    </ul>
+                </li>
+                <li>Grammar
+                <ul>
+                    <li>agr</li>
+                    <li>gov</li>
+                    <li>infl</li>
+                    <li>compar</li>
+                    <li>complex
+                    <ul>
+                        <li>rel_clause</li>
+                        <li>sent_arg</li>
+                    </ul></li>
+                    <li>conn</li>
+                    <li>coord
+                    <ul><li>discoord</li></ul></li>
+                    <li>ref
+                    <ul>
+                        <li>converb</li>
+                        <li>pron</li>
+                    </ul></li>
+                    <li>voice</li>
+                    <li>lack</li>
+                    <li>constr</li>
+                </ul></li>
+                <li>Discourse
+                <ul><li>discourse
+                <ul>
+                    <li>parc</li>
+                    <li>logic</li>
+                    <li>link</li>
+                    <li>WO</li>
+                    <li>tauto</li>
+                    <li>top</li></ul></li></ul></li>
+                <li>Style
+                <ul>
+                    <li>styl</li>
+                    <li>official</li>
+                    <li>colloq</li></ul></li>
+                <li>Cause
+                <ul><li>cause<ul>
+                    <li>typo</li>
+                    <li>contam</li></ul></li></ul></li>
+              </ul>
+            </div>
+        </div>
+    </div>
+    </div>
+<script>
+// style="color:red;"
+function get_selected_text1(a1,a2) {
+var spa=0;
+var k = "";
+if (window.getSelection()!="") {
+		var select = window.getSelection();
+		var s = String(select);
+		if(s.at(-1)===' '){
+		    s=s.slice(0,-1);
+		}
+		var a = "{{doc.2}}";
+		var b = "{{doc.3}}";
+		//alert(a);
+		a=String(a);
+		var t1 = a.lastIndexOf('doc_id_id');
+		t1+=17;
+		var t2="";
+		for(t1;t1<a.length-2;t1+=1){
+		    t2+=a[t1];
+		}
+		b=String(b);
+		var sp = a.indexOf(s);
+		var i = a.lastIndexOf('id', sp)
+        var j = i+10;
+        var k = "";
+        while(a[j]!=','){
+            k+=a[j];
+            j+=1;
+        }
+
+        while(j<sp){
+            var t = a.indexOf('span',j+1);
+            j=t;
+            spa+=1;
+
+        }
+        spa=spa/2;
+        var num = b.indexOf(String(k));
+            b = String(b);
+            b=b.slice(num+3);
+            var num2= num;
+            var num1 = num;
+            num=0;
+            while(num<b.length){
+                num = b.indexOf(String(k),num);
+                if(num===-1){
+                    num=b.length;
+                }
+                else{
+                    num1 = b.indexOf("document_id", num);
+                    //alert(num);
+                    num+=10;
+                }
+            }
+            b=b.slice(0,num1);
+            num2 = b.indexOf("span["+String(spa));
+            var comment = document.getElementById(a1).value;
+var tags = document.getElementById(a2).value;
+        var xhr = new XMLHttpRequest();
+
+        var body = 'comment=' + encodeURIComponent(comment) +
+        '&tags=' + encodeURIComponent(tags) + '&document_id=' + String(k) + '&start=' + String(spa) + '&word=' +s;
+
+xhr.open("POST", '/document_view?doc='+t2);
+xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+
+xhr.send(body);
+alert(comment +'\nTags: '+tags)
+        }
+        else{
+         //alert(spa);
+           //     alert(k);
+           alert('Выделите слово');
+    }
+
+}
+function get_selected_text() {
+	if (window.getSelection()) {
+		var select = window.getSelection();
+		var s = String(select);
+		if(s.at(-1)===' '){
+		    s=s.slice(0,-1);
+		}
+		var a = "{{doc.2}}";
+		var b = "{{doc.3}}";
+		b=String(b);
+		//alert(b);
+		var sp = a.indexOf(s);
+		var i = 0;
+        var k = 0;
+        var k1 = 0;
+		while(i<b.length){
+		    i = b.indexOf("quote",i+1);
+		    if(i===-1)
+		        break;
+		    var j = i+19;
+		    var b1 ="";
+		    while(b[j]!='&'){
+		        b1+=b[j];
+		        j+=1;
+		    }
+		    if(b1.indexOf(s)!=-1){
+                k = b.indexOf("text",i);
+                var b2 ="";
+                k+=18;
+		        while(b[k]!='&'){
+		            b2+=b[k];
+		            k+=1;
+		        }
+		        k1 = b.indexOf("tags",i);
+		        var b3 = "";
+		        k1+=18;
+		        while(b[k1]!=']'){
+		            b3+=b[k1];
+		            k1+=1;
+		        }
+		        for(let n=0;n<10;n++)
+		            b3=b3.replace('&quot;','');
+
+		        alert(b2+'\nTags'+b3);
+		        break;
+		    }
+		}
+    }
+}
+</script>
+{% endblock %}
+
+

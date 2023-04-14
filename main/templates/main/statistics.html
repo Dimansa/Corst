@@ -1,0 +1,268 @@
+{% extends "main/base.html" %}
+{% load static %}
+
+{% block title %}
+    CoRST Statistics
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <h2>Аннотировано {{ progress.0 }} документов</h2>
+        <div class="progress">
+            <div class="progress-bar" role="progressbar" aria-valuenow="{{ progress.1 }}" aria-valuemin="0" aria-valuemax="100" style="width: {{ progress.1 }}%;">
+                {{ progress.1 }}%
+            </div>
+        </div>
+        <h2>Проверено {{ progress.2 }} документов</h2>
+        <div class="progress">
+            <div class="progress-bar" role="progressbar" aria-valuenow="{{ progress.3 }}" aria-valuemin="0" aria-valuemax="100" style="min-width: 2em;width: {{ progress.3 }}%;">
+                {{ progress.3 }}%
+            </div>
+        </div>
+    </div>
+
+
+    <h2 class="mt-3">Период</h2>
+    <form method="post" id="year-filter">
+    {% csrf_token %}
+
+
+    <div class="row subcorpus-bg mb-3">
+        <div class="col-sm-1 mt-1"><h4  style="font-size:20px;">От</h4></div>
+        <div class="col-sm-3">
+                {{ form.first_date }}
+        </div>
+        <div class="col-sm-1 mt-1"><h4 style="font-size:20px;">до</h4></div>
+        <div class="col-sm-3">
+                {{ form.second_date }}
+        </div>
+        <div class="col-sm-3">
+                <p><input type="submit" class="btn btn-xs" value="OK" style="margin: 0 auto; display: block;"></p>
+        </div>
+    </div>
+    </form>
+    <div class="d-none" id="date">
+        <span>Вы выбрали период с {{ date.0 }} по {{ date.1 }}</span>
+    </div>
+
+        <div class="tabs">
+            <ul class="tabs_items">
+                <a href="#tab_01" class="tabs_item disabled mx-3" id="tab1">Общая статистика</a>
+                <a href="#tab_02" class="tabs_item" id="tab2">Статистика по ошибкам</a>
+            </ul>
+            <hr>
+            <div class="tabs_body">
+                <div class="tabs_block" id="tab_01">
+                    <div class="row">
+            <div class="col-md-4">
+                <h2>Базовые показатели</h2>
+                <table class="table table-condensed table-hover table-bordered">
+                    <tr>
+                        <td>Количество документов</td>
+                        <td>{{ docs }}</td>
+                    </tr>
+                    <tr>
+                        <td>Количество слов</td>
+                        <td>{{ words }}</td>
+                    </tr>
+                    <tr>
+                        <td>Количество предложений</td>
+                        <td>{{ sentences }}</td>
+                    </tr>
+                    <tr>
+                        <td>Количество аннотаций</td>
+                        <td>{{ annotations }}</td>
+                    </tr>
+                </table>
+                <h2>Подсчеты по полу автора</h2>
+                <table class="table table-condensed table-hover table-bordered">
+                    {% for elem in gender %}
+                    <tr>
+                        <td>{{ elem.gender_group }} </td>
+                        <td>{{ elem.counter }}</td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
+            <div class="col-md-4">
+                <h2>Подсчеты по жанру</h2>
+                <table class="table table-condensed table-hover table-bordered">
+                    {% for elem in genre %}
+                    <tr>
+                        {% if elem.genre == '' %}
+                        <td>unknown</td>
+                        {% endif %}
+                        {% if elem.genre != '' %}
+                        <td>{{ elem.genre }} </td>
+                        {% endif %}
+                        <td>{{ elem.counter }}</td>
+                    </tr>
+                    {% endfor %}
+                </table>
+                <h2>Подсчеты по направлению</h2>
+                <table class="table table-condensed table-hover table-bordered">
+                    {% for elem in major %}
+                    <tr>
+                        {% if elem.major == '' %}
+                        <td>unknown</td>
+                        {% endif %}
+                        {% if elem.major != '' %}
+                        <td>{{ elem.major }} </td>
+                        {% endif %}
+                        <td>{{ elem.counter }}</td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
+            <div class="col-md-4">
+                <h2>Подсчеты по курсу</h2>
+                <table class="table table-condensed table-hover table-bordered">
+                    {% for elem in course %}
+                    <tr>
+                        {% if elem.course == '' %}
+                        <td>unknown</td>
+                        {% endif %}
+                        {% if elem.course != '' %}
+                        <td>{{ elem.course }} </td>
+                        {% endif %}
+                        <td>{{ elem.counter }}</td>
+                    </tr>
+                    {% endfor %}
+                </table>
+                <h2>Подсчеты по научной области</h2>
+                <table class="table table-condensed table-hover table-bordered">
+                    {% for elem in domain %}
+                    <tr>
+                        {% if elem.domain == '' %}
+                        <td>unknown</td>
+                        {% endif %}
+                        {% if elem.domain != '' %}
+                        <td>{{ elem.domain }} </td>
+                        {% endif %}
+                        <td>{{ elem.counter }}</td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+                </div>
+            </div>
+            <div class="tabs_body">
+                <div class="tabs_block d-none" id="tab_02">
+                    <div class="row">
+            <div class="col-md-4">
+                <h2>Базовые подсчеты</h2>
+                <table class="table table-condensed table-hover table-bordered">
+                    <tr>
+                        <td>Количество предложений с ошибками</td>
+                        <td>{{ errors.0 }}</td>
+                    </tr>
+                    <tr>
+                        <td>Количество предложений с лексическими ошибками</td>
+                        <td>{{ errors.1 }}</td>
+                    </tr>
+                    <tr>
+                        <td>Количество предложений со стилистическими ошибками</td>
+                        <td>{{ errors.2 }}</td>
+                    </tr>
+                    <tr>
+                        <td>Количество предложений с грамматическими ошибками</td>
+                        <td>{{ errors.3 }}</td>
+                    </tr>
+                    <tr>
+                        <td>Количество предложений с дискурсивными ошибками</td>
+                        <td>{{ errors.4 }}</td>
+                    </tr>
+                    <tr>
+                        <td>Количество предложений с причинными ошибками</td>
+                        <td>{{ errors.5 }}</td>
+                    </tr>
+                </table>
+
+                    <h2>Ошибки по гендеру</h2>
+                    <table class="table table-condensed table-hover table-bordered" >
+                    {% for elem in errors_by_gender %}
+                        <tr>
+                            <td>{{ elem.gender_group }} </td>
+                            <td>{{ elem.counter }}</td>
+                        </tr>
+                    {% endfor %}
+                    </table>
+                    <h2>Ошибки по дате</h2>
+                    <table class="table table-condensed table-hover table-bordered">
+                        {% for elem in errors_by_date %}
+                            <tr>
+                                <td>{{ elem.date_group }} </td>
+                                <td>{{ elem.counter }}</td>
+                            </tr>
+                        {% endfor %}
+                </table>
+                </div>
+                <div class="col-md-4">
+                    <h2>Ошибки по курсу</h2>
+                    <table class="table table-condensed table-hover table-bordered" >
+                    {% for elem in errors_by_course %}
+                        <tr>
+                            {% if elem.course == '' %}
+                            <td>unknown</td>
+                            {% endif %}
+                            {% if elem.course != '' %}
+                            <td>{{ elem.course }} </td>
+                            {% endif %}
+                            <td>{{ elem.counter }}</td>
+                        </tr>
+                    {% endfor %}
+                    </table>
+                    <h2>Ошибки по жанру</h2>
+                    <table class="table table-condensed table-hover table-bordered" >
+                    {% for elem in errors_by_genre %}
+                        <tr>
+                            {% if elem.genre == '' %}
+                            <td>unknown</td>
+                            {% endif %}
+                            {% if elem.genre != '' %}
+                            <td>{{ elem.genre }} </td>
+                            {% endif %}
+                            <td>{{ elem.counter }}</td>
+                        </tr>
+                    {% endfor %}
+                    </table>
+                <h2>Ошибки по специальности автора</h2>
+                <table class="table table-condensed table-hover table-bordered" >
+                    {% for elem in errors_by_major %}
+                        <tr>
+                            {% if elem.major == '' %}
+                            <td>unknown</td>
+                            {% endif %}
+                            {% if elem.major != '' %}
+                            <td>{{ elem.major }} </td>
+                            {% endif %}
+                            <td>{{ elem.counter }}</td>
+                        </tr>
+                    {% endfor %}
+                </table>
+
+                </div>
+            <div class="col-md-4">
+                <h2>Подсчеты по тэгам ошибок</h2>
+                <table class="table table-condensed table-hover table-bordered" >
+                    {% for elem in errors_by_tag %}
+                        <tr>
+                            {% if elem.tag_group == 'None' %}
+                            <td>unknown</td>
+                            {% endif %}
+                            {% if elem.tag_group != '' %}
+                            <td>{{ elem.tag_group }} </td>
+                            {% endif %}
+                            <td>{{ elem.counter }}</td>
+                        </tr>
+                    {% endfor %}
+                </table>
+            </div>
+            </div>
+
+        </div>
+</div>
+
+{% endblock content %}

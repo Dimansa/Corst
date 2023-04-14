@@ -1,0 +1,439 @@
+{% extends 'main/base_en.html' %}
+{% load static %}
+
+{% block title %}
+About CoRST
+{% endblock %}
+
+{% block content %}
+<div class="container">
+<div class="col-md-9">
+
+
+
+          <hr id="sec2">
+
+
+                <h2>About</h2>
+        <p>Corpus of Russian Student Texts (CoRST) is a collection of Russian texts written by students of different universities. Currently, the size of the corpus is about 3.1 million tokens. The texts are annotated in several  ways (metatextual annotation, morphological annotation and error markup), which enables users to perform many types of search in the corpus.</p>
+<p>To learn more about how to use the corpus and the search request language, please, consult the <a href="http://web-corpora.net/learner_corpus/help/" target="_blank">help page</a>.</p>
+<p>Corpus of Russian Student Texts is a comprehensive reference system intended for researchers, teachers, students, as well as everyone interested in the problems of modern Russian grammar, current processes in lexis, morphology and syntax of modern Russian.</p>
+
+
+          <hr id="sec3">
+
+
+                <h2>Types of texts</h2>
+        <p>The texts represented in the corpus have been written by students of bachelor's and master's programmes of different universities, students. The main types of texts are as follows: course papers, term papers, bachelor's and master's theses, essays, abstracts, reports, summaries, autobiographies, and paragraphs (small texts for different purposes: home assignments, answers to various questions, etc.).</p>
+<p>The corpus provides information about the academic year/ semester/ module when  each text was written and the field of knowledge which the text relates to. The field of knowledge may not coincide with the academic majors of students. For instance, if a linguist writes an essay on history, we indicate his/her major (<i>linguistics</i>) and the subject of the work (<i>history</i>).</p>
+
+
+          <hr id="sec4">
+
+
+                <h2>Authors of texts</h2>
+        <p>The corpus includes  texts written by students of the following academic majors: economics, sociology, political science, law, psychology, journalistics, linguistics, history, philology, logistics, mathematics, philosophy. Generally, the corpus provides information about the gender and age of the author, and also about the academic year (1st year bachelor, 2nd year  master, etc.). Some texts are provided with the information about the region where the author lived until the age of 18 and whether the author is a bilingual speaker.</p>
+
+
+          <hr id="sec5">
+
+
+                <h2>Annotation</h2>
+        <p>As in any other corpus intended for linguistic and sociological research, the texts of the Corpus of Russian Student Texts are supplemented with <i>linguistic </i> and <i>metalinguistic information</i>, or <i>markup</i>. Linguistic markup includes <i>morphological markup</i> and <i>error markup</i>. Currently, the texts of the corpus contain <i>metatextual markup</i> and <i>morphological markup</i>. </p>
+<p>Below is more information about the layers of markup.</p>
+
+
+          <hr id="sec6">
+        <h2>Metatextual markup</h2>
+
+
+        <i>Metatextual markup</i> contains metalinguistic information about the text and its author. <p></p>
+
+           <div class="row">
+          <div class="col-md-6">
+            <div class="panel panel-default">
+              <div class="panel-heading"><h4>Author-meta</h4></div>
+              <div class="panel-body">
+                  <p><b>Linguist, economist, sociologist, law student</b>, etc.<br>
+
+The student’s<i>academic major</i> is always indicated: this is an important part of sociolinguistic information, which is of value for methodological research. </p>
+
+<p><b>M, F</b><br>
+Information about <i>the gender</i> of a student is given in the majority of cases; however, sometimes it is impossible to be retrieved. For instance, if a student has signed his/her paper <i>Jakovenko M.</i>, the field «gender» is not filled in. After the metatextual data is collected, the name of the author is deleted. </p>
+
+<p><b>21, 22</b>, etc. <br>
+<i>The age</i> of the author is indicated if necessary. While creating the corpus, we did not intend to collect accurate information about the age. Most of Russian students enter the university right after leaving school; therefore, the approximate age of a student is easily retrieved from the data about <i>the year of studying</i> (see  <a href="#infotext">Metadata related to the text</a>). </p>
+
+<p><b>Ukrainian, Armenian, German</b>, etc. <br>
+This includes information about whether the author has any other mother tongue, besides Russian. Generally, this is a language which is spoken in the family or a language of the community where the author lived before entering the university.</p>
+
+<p><b>Ukraine, Armenia, Germany</b>, etc. <br>
+This includes information about the region of the author's residency before he/she entered the university. This information matters for sociolinguistic research. The region is indicated if known.<br> <br> <br> <br> <br>
+              </p></div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="panel panel-default">
+              <div class="panel-heading"><h4>Text-meta</h4></div>
+              <div class="panel-body">
+                  <p><b>2003-2004, 2011-2012</b>, etc.  <br>
+Generally, metatextual markup has information about the academic year when the text was written. This information is needed for methodological research. </p>
+
+<p><b>1st year spec, 2nd year bach, 1st year mas</b>, etc. <br>
+This is information about the year of studying during which the text was created. For instance, <b>1st year spec</b> means the first of five years of specialist program, <b>2nd year bach</b> means the second of four years of bachelor's program, etc.</p>
+
+<p><b>1 semester, 2 module</b>, etc.<br>
+Information about the semester, or the module (for students with the module system), when the text was created.</p>
+
+<p><b>Course paper, barchelor's of master's thesis, abstract, essay, report, summary, autobiography, paragraph</b>, etc.<br>
+The type of an academic text is always indicated. Paragraphs are small texts for different purposes: hometasks, answers to various questions, etc.</p>
+
+<p><b>Linguistics, economics, sociology, law</b>, etc.<br>
+In the process of studying at the university a student writes texts related to his/her academic major or in other academic fields. Generally, linguists would write course papers and theses on linguistics, economists – on economics, however, even for term papers, there may be exceptions. As for the rest of the texts, the field of knowledge to which they may be related does not always coincide with the academic courses students major in. For instance, a linguist may write a paper on history, an economist – on sociology, etc. <br>
+Many short texts were written in the Academic Writing or Speech Culture courses and may not be  attributed to any particular field of knowledge. Such texts are marked with label   <b>«various topics»</b>). </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+          <hr id="sec7">
+        <h2>Morphological markup</h2>
+
+
+        <p>Morphological markup contains information about morphological forms and meanings (parts of speech, gender, number, case, mood, etc.). Morphological markup is required for searching words, word forms and constructions. </p>
+<p>For the morphological markup of the Corpus of Russian Student Texts we have used the same tag set that was integrated into the Russian National Corpus (<a href="http://www.ruscorpora.ru" target="_blank">RNC</a>).  <a href="http://ruscorpora.ru/corpora-morph.html" target="_blank">The full list of tags</a> is available on the RNC website. The morphological markup is carried out automatically with the help of the morphological analyzer <a href="http://company.yandex.ru/technologies/mystem/" target="_blank">MYSTEM</a>.</p>
+
+
+          <hr id="sec8">
+        <h2>Error markup</h2>
+
+
+        <p>The multilayered <i>system of error markup</i> is currently being tested, after which the texts will be annotated manually. The error markup system includes:</p>
+<ol type="a">
+<li>linguistic error type (errors in lexis, grammar or discourse);</li>
+<li>cause of an error;</li></ol>
+<p><i>Linguistic error types</i> presented in (а) are divided into subtypes as follows:
+</p><ul>
+<li>lexical (lexical and word formation errors), </li>
+<li>stylistic (fficial style, colloquial style, other stylistic deviance), </li>
+<li>grammatical (agreement, government, coordination errors, errors in comparative constructions, in adverbial participial phrases, in complex sentences – in sentential arguments and relative clauses; errors in pronouns including anaphora and reflexives; reciprocals, nominal, verbal and adjectival inflection – errors in number, person, gender, case, verbal and adjectival inflectional forms),</li>
+<li>discursive (parcellation, topicalization, wrong use of link-words, mixing of direct and indirect speech, wrong word order, logical errors).</li> </ul>
+<p>Among the <i>causes of mistakes</i> presented in (b) one can point out contaminations of constructions and typos as the most transparent and the most common causes. In the future, the process of annotating the corpus texts may reveal other types of causes of mistakes.</p>
+<p>It is important to stress that the suggested error classification is multilayered:
+</p><ol><li>Firstly, for each linguistic error its linguistic type and, if possible, cause, have to be defined.</li>
+<li>Secondly, an error may be attributed to different linguistic types. For instance, an error may be both lexical and stylistic at the same time.</li></ol>
+
+
+          <hr id="sec9">
+
+
+                <h2>Corpus users</h2>
+        <p>The Corpus of Russian Student Texts is intended for linguists - researchers, teachers of the literary Russian language and of the Russian academic writing, and students.</p>
+<p>To researchers, this resource is useful because it helps, on the one hand, to systematize the peculiarities of academic texts of novice authors. On the other hand, the Corpus of Russian Student Texts is an invaluable resource for the study of errors made by speakers of Russian, as well as for investigation  of grammar, lexis, stylistics, sociolinguistics, and psycholinguistics.
+</p>
+<p>To teachers of the literary Russian language and of the Russian academic writing, the resource helps  to see the main problems that a student faces while trying to master a new register of his/her first language . The methodological value of the resource is that teachers now receive an opportunity to develop various exercises and linguistic training software on its basis.
+</p>
+<p>To students of different majors, the resource offers an opportunity to familiarize themselves with typical language errors and their classification as well as an opportunity   to edit them. Such exercises are supposed to reduce such errors while writing a text of one’s own.
+</p>
+
+
+          <hr id="sec10">
+
+
+                <h2>Team</h2>
+        <p>The corpus was created by the Linguistic Laboratory of Corpus Technologies of National Research University Higher School of Economics.</p>
+
+<p><b>Chiefs</b><br>
+ Natalya Aleksandrovna Zevahina<br>
+Ekaterina Vladimirovna Rahilina<br>
+Yuliya Mihaylovna Kuvshinskaya </p><br>
+
+<p><b>Developers</b><br>
+Timofey Aleksandrovich Arhangelskiy<br>
+Evgeniy Glazunov<br>
+Elmira Gayazovna Mustakimova </p><br>
+
+<p><b>Team:</b>
+
+<br></p><li><b>HSE School of Linguistics Staff<br>
+(who contributed to the text markup, research and development of the CORST) </b><br></li>
+
+Yana Emilevna Ahapkina <br>
+Svetlana Dzhakupova <br>
+Olesya Kisselev <br>
+Anna Iosifovna Levinzon <br>
+Aleksandr Borisovich Letuchiy <br>
+Anna Dmitrievna Plisetskaya <p></p>
+
+<p></p><li><b>HSE School of Linguistics Students<br>
+(who contributed to the text markup, research and development of the CORST) </b><br></li>
+
+Vlada Aleksandrova<br>
+Olga Astapenko<br>
+Yuliya Badryizlova<br>
+Margarita Bobrova<br>
+Tatyana Bolgina<br>
+Mariya Bocharova<br>
+Anna Vishenkova<br>
+Ekaterina Voloshina<br>
+Evgeniy Glazunov<br>
+Nikita Gordeev<br>
+Nadezhda Grigoreva<br>
+Dasha Demidova<br>
+Andrey Zaytsev<br>
+Mariya Zarifyan<br>
+Veronika Zyikova<br>
+Violetta Ivanova<br>
+Sergey Kolesnikov<br>
+Anna Kondrateva<br>
+Anastasiya Kostyanitsyina<br>
+Polina Kudryavtseva<br>
+Mariya Kuznetsova<br>
+Olga Kultepina<br>
+Alina Ladyigina<br>
+Nastya Makarovich<br>
+Darya Maksimova<br>
+Ekaterina Matyuhina<br>
+Ekaterina Mozhelyanskaya<br>
+Nikol Morozova<br>
+Mariya Myislina<br>
+Mariya Ob'edkova<br>
+Olga Osinovskaya<br>
+Vasilisa Osipova<br>
+Irina Panteleeva<br>
+Alina Prohorova<br>
+Svetlana Puzhaeva<br>
+Olga Ramzaytseva<br>
+Kseniya Romanova<br>
+Sasha Salamatina<br>
+Asya Simonyan<br>
+Anna Simonyan<br>
+Polina Sonina<br>
+Ekaterina Taktasheva<br>
+Mariya TerYohina<br>
+Mariya Fedorova<br>
+Anna Tsyizova<br>
+Natalya Chukicheva<br>
+Alina Shaymardanova<br>
+Yana Shevchenko<br>
+<p></p>
+
+          <hr id="sec11">
+
+
+                <h2>Publications</h2>
+
+
+          <hr id="sec12">
+        <h3>Projects</h3>
+
+
+        <ul>
+
+<p><br><b>2021</b></p>
+
+<li><i>Aleksandra Serova<br></i>
+Variability in Argument Structure</li><br>
+
+
+<p><br><b>2017</b></p>
+
+<li><i>Nadezhda Grigor'eva<br></i>
+Errors in Voice and Argument Alternations: Corpus and Experimental Study</li><br>
+
+<li><i>Anastasiya Makarovich<br></i>
+Analysis of the Errors in Government in Contemporary Russian</li><br>
+
+<li><i>Nadezhda Grigor'eva<br></i>
+Non-standard realisations of sya-constructions in Russian</li><br>
+
+<li><i>Anastasiya Makarovich<br></i>
+Non-standard realisations of argument structures in Russian</li><br>
+
+
+<p><br><b>2016</b></p>
+
+<li><i>Olga Ramzaytseva<br></i>
+Automatic parsing of errors in comparative constructions in the Corpus of Russian Student Texts</li><br>
+
+<li><i>Svetlana Puzhaeva<br></i>
+Faktoryi, vliyayuschie na narushenie koreferentsii deeprichastnyih oborotov</li><br>
+
+
+<p><br><b>2015</b></p>
+
+<li><i>Anna Vishenkova<br></i>
+Comparative constructions with double marker of comparison in non-standard Russian: Corpus study</li><br>
+
+<li><i>Svetlana Puzhaeva<br></i>
+Construction Blending in the Corpus of Russian Student Texts</li><br>
+
+
+<p><br><b>2014</b></p>
+
+<li><i>Natalya Zevahina, Svetlana Dzhakupova<br></i>
+Case (non-)coincidence in elliptical coordinated constructions: Learner texts of Russian native speakers</li><br>
+
+<li><i>Natalya Zevahina, Svetlana Dzhakupova, Anna Vishenkova<br></i>
+Meta-linguistic comparative constructions in Russian and cross-linguistically (since 2014 until now)</li>
+</ul>
+
+          <hr id="sec13">
+        <h3>Publications</h3>
+
+
+        <ul>
+
+<p><br><b>2021</b></p>
+
+<li>Kuvshinskaya Yu. M., Aksenova A. A. Punktuatsiya v predlozheniyah s soyuzom "to est" kak otrazhenie razvitiya diskursivnyih funktsiy // V kn.: Yazyik i metod: Russkiy yazyik v lingvisticheskih issledovaniyah XXI veka Vol. 7. Kraków : Wydawnictwo Uniwersytetu Jagiellońskiego, 2021.</li><br>
+
+<p><br><b>2020</b></p>
+
+<li>Klimov A., Kopotev M., Zevakhina N., Kilina M., Grillandi A., Elizaveta N., Sidorova A. Assessing novice writing against the Corpus of Academic Texts, in: 14 TaLC - Teaching and Language Corpora Conference. , 2020. P. 44-45.</li><br>
+
+<p><br><b>2019</b></p>
+
+<li>Klimov A., Toldova S., Kopotev M., Zevakhina N., Dmitrieva A. D., Kisselev O., Baranchikova A., Fedorova M. CAT&amp;kittens: a corpus-based text-analytic tool for Russian academic writing, in: SlaviCorp 2018 Book of Abstracts. Charles University, 2018. P. 22-25.</li><br>
+
+<li>Kuvshinskaya Yu. M. Sovremennyie tendentsii v distributivnom upotreblenii russkih suschestvitelnyih (po korpusnyim dannyim) // V kn.: Russkaya grammatika: aktivnyie protsessyi v yazyike i rechi. Yar. : RIO YaGPU, 2019. S. 405-415.</li><br>
+
+<li>Kuvshinskaya Y. M. Russian indefinite pronoun kakoj-libo: non-standart usage and changes in the semantics // Jazykovedny Casopis. 2019. No. 2. P. 225-233.</li><br>
+
+<p><br><b>2018</b></p>
+
+<li>Grigoreva N. A., Zevahina N. A., Kuvshinskaya Yu. M. Nestandartnyie strategii upotrebleniya vozvratnyih glagolov: prichinyi i yazyikovyie mehanizmyi // V kn.: Fortunatovskie chteniya v Karelii. Sbornik dokladov Mezhdunarodnoy nauchnoy konferentsii (10-12 sentyabrya 2018 goda, Petrozavodsk) Ch. 1. Petrozavodsk : Izdatelstvo PetrGU, 2018. S. 72-74.</li><br>
+
+<p><br><b>2016</b></p>
+
+<li>Kuvshinskaya Yu. M. Studencheskie rechevyie oshibki i aktualnyie tendentsii v razvitii russkogo yazyika // V kn.: Leo philologiae. Festshrift v chest 70-letiya Lva Iosifovicha Soboleva / Pod obsch. red.: A. A. Bonch-Osmolovskaya, M. A. Kucherskaya, K. M. Polivanov, A. A. Zubov, Mayofis Mariya Lvovna. M. : [b.i.], 2016. S. 157-178.</li><br>
+
+<p><br><b>2015</b></p>
+
+<li>Puzhaeva S. Yu., Zevahina N. A., Dzhakupova S. S. Kontaminatsiya konstruktsiy v rechi nestandartnyih russkogovoryaschih na materiale korpusa russkih uchebnyih tekstov // V kn.: Trudyi Mezhdunarodnoy nauchnoy konferentsii "Korpusnaya lingvistika-2015". SPb. : Izdatelstvo SPbGU, 2015. S. 390-397.</li><br>
+
+<li>Zevakhina N., Dzhakupova S. Corpus of Russian student texts: design and prospects, in: Trudyi 21-y Mezhdunarodnoy konferentsii po kompyuternoy lingvistike «"Dialog". Izd-vo RGGU, 2015.</li><br>
+
+<li>Puzhaeva Svetlana, Natalia Zevakhina, and Svetlana Dzhakupova. (2015). Construction blending in non-standard variants of Russian in the Corpus of Russian Student Texts. In Proceedings of the 6th International Conference “Corpus Linguistics-2015”, 390-397. Saint-Petersburg. (in Russian) </li><br>
+
+<li>Zevakhina, Natalia and Svetlana Dzhakupova. Corpus of Russian student texts: design and prospects. In Proceedings of the 21st International Conference on Computational Linguistics “Dialog”. Moscow, 2015.</li><br>
+
+<li>Zevakhina N., Dzhakupova S. Russian metalinguistic comparatives: a functional perspective. In Working papers by NRU HSE. Series WP BRP "Linguistics". 2015. No. 39.</li><br>
+
+<p><br><b>2014</b></p>
+
+<li>Svetlana Dzhakupova and Natalia Zevakhina. Case (non-)coincidence in elliptical coordinated constructions: Learner texts of Russian native speakers // Ahti Nikunlassi, Ekaterina Protassova (eds.) Slavica Helsingiensia 45 Instrumentarium of Linguistics: Language errors and multilingualism. Helsinki: University of Helsinki, 2014, pp. 35—49. (in Russian)</li><br>
+
+</ul>
+
+          <hr id="sec14">
+        <h3>Presentations</h3>
+
+
+        <ul>
+<br>
+<p><br><b>2021</b></p>
+
+<li><i>Kuvshinskaya Yulia </i> <br>
+
+Rabota nad oshibkami: oshibki v uchebnyih tekstah kak instrument obucheniya i predmet studencheskih issledovaniy/ International conference "Yazyik i metodyi ego opisaniya", RSUH<br>
+28 January 2021, Russian Federation, Moscow</li><br>
+
+<li><i>Kuvshinskaya Y.M., Aksenova A.A.<br></i>
+Sovremennyie tendentsii v upotreblenii konnektora "to est": korpusnoe issledovanie / V Mezhdunarodnyiy simpozium "Russian Grammar: System – Language Usage – Language Variation"<br>
+22–24 September 2021, Germany, Potsdam</li><br>
+
+
+<p><br><b>2020</b></p>
+
+<li><i>Kuvshinskaya Yulia and Natalia Zevakhina</i><br>
+Non-standard participles in Russian: a corpus study. The 15th Annual Slavic Linguistics Society Meeting. Indiana University
+<br>
+4-6 September 2020, US (Online presentation due to Covid-19)</li><br>
+
+<p><br><b>2019</b></p>
+
+<li><i>Kuvshinskaya Yulia </i><br>
+Mestoimenie KAKOY-LIBO: nestandartnyie upotrebleniya i sovremennyiy uzus (po materialam Korpusa russkih uchebnyih tekstov i NKRYa)// VI Mezhdunarodnaya nauchnaya konferentsiya "Kultura russkoy rechi" (Grotovskie chteniya)<br>
+21–23 February 2019, Russian Federation, Moscow</li><br>
+
+<li><i>Kuvshinskaya Yulia </i><br>
+Sovremennyie tendentsii v distributivnom upotreblenii russkih suschestvitelnyih (po korpusnyim dannyim)// Russkaya grammatika: aktivnyie protsessyi v yazyike i rechi<br>
+17–19 May 2019, Russian Federation, Yaroslavl</li><br>
+
+<p><br><b>2018</b></p>
+
+<li><i>Makarovich Anastasiya, Natalia Zevakhina and Yulia Kuvshinskaya</i><br>
+Deviations in argument structures of Russian predicates: Corpus evidence. The 51st Annual Meeting of the Societas Linguistica Europaea.
+<br>
+September 2018, Tallinn</li><br>
+
+<li><i>Kuvshinskaya Yulia</i><br>
+Non-standard usage of participles in Russian written texts: a corpus study // International Conference on Russian Studies. <br>
+20–22 June 2018, Spain, Barcelona</li><br>
+
+<li><i>Kuvshinskaya Yulia, Nadezhda Grigor’eva and Natalia Zevakhina</i><br>
+Non-standard strategies for using sya-verbs: facts and explanations. International conference in honour of Filipp Fortunatov (Paper accepted for presentation, in Russian)<br>
+September 2018, Russian Federation, Petrozavodsk </li><br>
+
+<li><i>Makarovich Anastasiya, Natalia Zevakhina and Yulia Kuvshinskaya</i><br>
+Deviations in argument structures of Russian predicates: Corpus evidence. SLE Conference <br>
+September 2018, Tallinn </li><br>
+
+<li><i>Kuvshinskaya Yulia and Natalia Zevakhina</i><br>
+Non-standard usage of participles in Russian written texts: a corpus study. International Conference on Russian Studies (Paper accepted for presentation, in Russian)<br>
+June 2018, Spain, Barcelona. </li><br>
+
+<p><br><b>2016</b></p>
+
+<li><i>Zevakhina Natalia, Svetlana Dzhakupova, Svetlana Puzhaeva, Elmira Mustakimova, Olga Ramzaytseva</i><br>
+Research on the basis of the Corpus of Russian Student Texts. Conference “Grammatical Processes in synchrony and diachrony”. Institute for the Russian Language<br>
+31 May 2016, Russian Federation, Moscow.</li><br>
+
+<p><br><b>2015</b></p>
+
+<li><i>Anna Vishenkova, Natalia Zevakhina, Svetlana Dzhakupova</i><br>
+Morphosyntax and Semantics of Russian Metalinguistic Comparatives. 14th annual conference of the Slavic Cognitive Linguistics Association "Crossing boundaries: taking a cognitive scientific perspective on Slavic languages and linguistics". Universities of Sheffield and Oxford<br>
+9–13 December 2015, UK </li><br>
+
+<li><i>Dzhakupova, Svetlana, Elmira Mustakimova, and Natalia Zevakhina </i><br>
+Corpus of Russian Student Texts: goals, annotation, and perspectives. Corpus Linguistics 2015 conference<br>
+21–24 Jule 2015, UK, Lancaster </li><br>
+
+<li><i>Puzhaeva Svetlana, Natalia Zevakhina, and Svetlana Dzhakupova</i><br>
+Construction blending in non-standard variants of Russian in the Corpus of Russian Student Texts. The 6th International Conference “Corpus Linguistics-2015”<br>
+22–26 June 2015, Russian Federation, Saint-Petersburg</li><br>
+
+<li><i>Zevakhina, Natalia and Svetlana Dzhakupova</i><br>
+Corpus of Russian student texts: design and prospects. The 21st International Conference on Computational Linguistics “Dialog”<br>
+27–30 May 2015, Russian Federation, Moscow </li><br>
+
+<p><br><b>2014</b></p>
+
+<li><i>Natalia Zevakhina and Svetlana Dzhakupova</i><br>
+Russian in the mirror of the Corpus of Russian Student Texts. The Institute of Slavic Studies of the Russian Academy of Sciences<br>
+16 December 2014, Russian Federation, Moscow</li><br>
+
+<li><i>Natalia Zevakhina and Svetlana Dzhakupova</i><br>
+Russian Metalinguistic Comparatives: Towards the Typology // The 11th Conference on Typology and Grammar for Young Researchers. Institute for Linguistic Studies, Russian Academy of Science<br>
+27–29 November 2014, Russian Federation, Saint-Petersburg</li><br>
+
+</ul>
+
+          <hr id="sec15">
+
+
+                <h2>Links</h2>
+                  <ul>
+<a href="http://www.ruscorpora.ru/en/corpora-intro.html" target="_blank">What is the Corpus?</a> - see the introduction page on the website of Russian National Corpus
+<li>Learner corpora</li>
+<a href="http://web-corpora.net/RussianLearnerCorpus/search/" target="_blank">Russian Learner Corpus </a><br>
+
+<a href="http://rus-ltc.org/" target="_blank">Russian Learner Translator Corpus</a><br>
+
+<a href="http://realec.org/" target="_blank">Russian Error-Annotated Learner English Corpus </a><br>
+</ul>
+        </div>
+    </div>
+{% endblock %}

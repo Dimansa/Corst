@@ -1,0 +1,12 @@
+{% load static %}
+
+<div class="popup-bg" id="logout">
+    <form action="{% url 'logout' %}">
+        <div class="popup">
+                <img class="close-popup" src="{% static 'img/close.png' %}" alt="close">
+                <p style="text-align: center;">Вы уверены, что хотите выйти?</p>
+                {% csrf_token %}
+                <p><input type="submit" class="btn btn-xs mt-4" value="OK" style="margin: 0 auto; display: block;"></p>
+        </div>
+    </form>
+</div>

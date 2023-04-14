@@ -1,0 +1,23 @@
+{% extends "main/base_en.html" %}
+
+{% block title %}
+    CoRST News
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <br>
+        <h1>News of the Corpus of Russian Student Texts</h1>
+        <br>
+    </div>
+    <div class="container">
+        <div class="row">
+        {% for new in news %}
+            <div class="col-md-6 new">
+                <h2 class="new_date">{{ new.date }}</h2>
+                <p>{{ new.text_eng }}</p>
+            </div>
+        {% endfor %}
+        </div>
+    </div>
+{% endblock content %}
